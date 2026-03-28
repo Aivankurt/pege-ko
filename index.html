@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Philippine Artistry Art Gallery</title>
+    <title>Philippine Artistry Art Gallery</title>
     <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Cinzel:wght@700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -12,30 +11,69 @@
 
 <nav class="nav">
     <ul class="nav-list">
-        <li><a href="index.html" class="nav-link active">Home</a></li>
-        <li><a href="tutorials.html" class="nav-link">Tutorials</a></li>
-        <li><a href="history.html" class="nav-link">Arts & History</a></li>
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#tutorials" class="nav-link">Tutorials</a></li>
+        <li><a href="#history" class="nav-link">Arts & History</a></li>
     </ul>
 </nav>
 
 <aside class="side-menu">
-    <a href="index.html" class="side-link">Home</a>
-    <a href="tutorials.html" class="side-link">Tutorials</a>
-    <a href="history.html" class="side-link">History</a>
+    <a href="#home" class="side-link">Home</a>
+    <a href="#tutorials" class="side-link">Tutorials</a>
+    <a href="#history" class="side-link">History</a>
 </aside>
 
 <main>
-    <section class="home-hero">
+    <section id="home" class="home-hero">
         <h1 class="home-title">Welcome!</h1>
         <h2 class="home-subtitle">Philippine Artistry Art Gallery</h2>
-        
         <div class="login-card">
-            <h3 style="margin-bottom: 20px; font-family: 'Montserrat', sans-serif;">Log-in</h3>
+            <h3>Log-in</h3>
             <form id="loginForm">
-                <input type="text" id="user" class="form-input" placeholder="Username" required>
-                <input type="password" id="pass" class="form-input" placeholder="Password" required>
+                <input type="text" class="form-input" placeholder="Username" required>
+                <input type="password" class="form-input" placeholder="Password" required>
                 <button type="submit" class="btn-submit">Log In</button>
             </form>
+        </div>
+    </section>
+
+    <section id="tutorials" class="content-card">
+        <h1 class="section-header">Improve Your Skills</h1>
+        
+        <a href="https://youtu.be/aMlTKtmczzM" target="_blank" class="tutorial-link">
+            <div class="tutorial-row">
+                <div class="video-container"><img src="https://img.youtube.com/vi/aMlTKtmczzM/mqdefault.jpg" class="tutorial-thumb" alt="Drawing"></div>
+                <div>
+                    <h3 class="tutorial-card-title">Foundations for Solid Drawing</h3>
+                    <p>Master the essentials of line, shape, and form.</p>
+                </div>
+            </div>
+        </a>
+
+        <a href="https://youtu.be/pAK0cvVQr_4" target="_blank" class="tutorial-link">
+            <div class="tutorial-row">
+                <div class="video-container"><img src="https://img.youtube.com/vi/pAK0cvVQr_4/mqdefault.jpg" class="tutorial-thumb" alt="Color Theory"></div>
+                <div>
+                    <h3 class="tutorial-card-title">Color Theory & Harmony</h3>
+                    <p>Learn how Values and Hues interact to set the mood.</p>
+                </div>
+            </div>
+        </a>
+    </section>
+
+    <section id="history" class="history-container">
+        <h1 class="section-header">Philippine Art History</h1>
+        <div class="artist-card">
+            <div class="profile-circle">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Juan_Luna_y_Novicio.jpg" alt="Juan Luna">
+            </div>
+            <div>
+                <h2 style="color: var(--highlight-color);">Juan Luna</h2>
+                <p>A Filipino painter, sculptor and a political activist of the Philippine Revolution during the late 19th century.</p>
+            </div>
+            <div class="art-square">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Spoliarium_by_Juan_Luna.jpg/1200px-Spoliarium_by_Juan_Luna.jpg" alt="Spoliarium">
+            </div>
         </div>
     </section>
 </main>
@@ -46,17 +84,10 @@
 </footer>
 
 <script>
+    // Login jumps to History section
     document.getElementById('loginForm').addEventListener('submit', function(e) {
         e.preventDefault();
-        const username = document.getElementById('user').value;
-        const password = document.getElementById('pass').value;
-        
-        // Simple authentication logic
-        if (username === 'admin' && password === 'password') {
-            window.location.href = 'history.html'; 
-        } else {
-            alert('Incorrect credentials. Try admin / password');
-        }
+        window.location.hash = '#history';
     });
 </script>
 
